@@ -1,0 +1,174 @@
+/* Fundo */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+#galaxy {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: -1;
+}
+
+/* Cabeçalho */
+.Cabeçalho {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo {
+  text-align: center;
+}
+
+/* Botões Menu */
+.menu-botao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+#submenu {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.botao {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.botao:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Responsivo */
+@media (min-width: 600px) {
+  .menu-botao {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #submenu {
+    flex-direction: column;
+  }
+
+  ul{   
+   grid-template-columns: 40vw 40vw;
+   gap: 35px;
+  }
+
+}
+
+/* Corpo */ 
+
+.corpo {
+  display: flex;
+  background-color: transparent;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: calc((260px * 5) + (10px * 4)); /* 5 itens + 4 gaps */
+  margin: 0 auto; /* centralizar */
+}
+
+.item {
+    
+   outline: 1px solid white;
+   background-color: #5e4e4e;
+   opacity: 0.7;
+   text-align: center;
+   justify-content: center;
+   padding: 15px;
+}
+
+ul{
+   list-style: none;
+   display: grid;
+   justify-content: center;
+   margin: 25px;
+   grid-template-columns: 20vw 20vw 20vw 20vw;
+   gap: 25px;
+   
+}
+/* Botões paginas */
+.pagina-botao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+span{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+
+#paginas {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.botaop {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.botao:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+/* Responsivo */
+@media (max-width: 900px) {
+   ul{
+    grid-template-columns: 30vw 30vw 30vw;
+   }
+}
+/* Responsivo */
+@media (max-width: 600px) {
+  .menu-botao {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #submenu {
+    flex-direction: column;
+  }
+
+  ul{   
+   grid-template-columns: 40vw 40vw;
+   margin: 5px;
+   padding: 0;
+  }
+
+}
