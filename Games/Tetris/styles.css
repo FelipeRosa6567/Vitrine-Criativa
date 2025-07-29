@@ -1,87 +1,72 @@
-/* Fundo */
-html, body {
+/* Reset básico */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  color: white;
-  overflow-x: hidden;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
 
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+}
+
+/* Fundo galáxia */
 #galaxy {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100vw;
   height: 100vh;
   z-index: -1;
 }
 
-/* Canvas */
-canvas#game {
-  border: 1px solid white;
-  z-index: 0;
-}
-
-/* Pontuação no canto superior direito */
-#score, #high-score {
-  color: white;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  text-align: right;
-}
-
-#high-score {
-  top: 60px;
-}
-
-/* Botões Menu */
+/* Menu */
 .menu-botao {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 20px;
-  z-index: 1;
+  margin: 15px 0 10px 0;
   position: relative;
+  z-index: 10;
 }
 
 #submenu {
   display: none;
-  flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: 8px;
 }
 
 .botao {
   background-color: transparent;
   color: white;
   border: 2px solid white;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  font-size: 14px;
+  transition: background-color 0.3s;
 }
 
 .botao:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  background-color: rgba(255,255,255,0.1);
 }
 
-/* Container para alinhar canvas e botão lado a lado */
-.canvas-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px; /* espaço entre o jogo e o botão */
+/* Canvas do jogo */
+#game {
+  border: 2px solid white;
+  background: #111;
+  image-rendering: pixelated;
 }
 
-/* Botão Recomeçar */
+/* Botão recomeçar */
+.restart-container {
+  margin: 10px 0 20px 0;
+}
+
 .restart-button {
   background-color: transparent;
   color: white;
@@ -90,22 +75,55 @@ canvas#game {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s;
 }
 
 .restart-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
+  background-color: rgba(255,255,255,0.1);
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-  .menu-botao {
-    flex-direction: column;
-    align-items: flex-start;
+/* Pontuação */
+#score, #high-score {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: right;
+  font-weight: bold;
+  font-size: 16px;
+  z-index: 10;
+}
+
+#high-score {
+  top: 50px;
+}
+
+/* Controles móveis */
+.mobile-controls {
+  display: none; /* invisível por padrão */
+  margin-bottom: 20px;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Media query para telas pequenas */
+@media (max-width: 768px) {
+  /* Exibe controles móveis */
+  .mobile-controls {
+    display: flex;
   }
 
-  #submenu {
-    flex-direction: column;
+  .mobile-controls button {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(255,255,255,0.3);
   }
 }

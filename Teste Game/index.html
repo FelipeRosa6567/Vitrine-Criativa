@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jogo Básico de Tetris em HTML</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -13,27 +14,36 @@
   <div class="menu-botao">
     <button class="botao" onclick="toggleMenu()">Menu</button>
     <div id="submenu">
-      <button class="botao" onclick="window.location.href='../../index.html'">Home</button> <!--Central inicio-->
-      <button class="botao" onclick="window.location.href='../../Poesias/Tela um/telaum.html'">Poesias</button> <!--Pagina poesias-->
-      <button class="botao" onclick="window.location.href='../../Livros/Tela um/telaum.html'">Livros</button> <!--Pagina livros-->
-      <button class="botao" onclick="window.location.href='../../Desenhos/Tela um/telaum.html'">Desenhos</button> <!--Pagina desenhos-->
-      <button class="botao" onclick="window.location.href='../../Games/telaum.html'">Games</button> <!--Pagina Games-->
-      <button class="botao" onclick="window.location.href='../../Creditos/Tela um/telaum.html'">Créditos</button> <!--Pagina Creditos-->
+      <button class="botao" onclick="window.location.href='../../index.html'">Home</button>
+      <button class="botao" onclick="window.location.href='../../Poesias/Tela um/telaum.html'">Poesias</button>
+      <button class="botao" onclick="window.location.href='../../Livros/Tela um/telaum.html'">Livros</button>
+      <button class="botao" onclick="window.location.href='../../Desenhos/Tela um/telaum.html'">Desenhos</button>
+      <button class="botao" onclick="window.location.href='../../Games/telaum.html'">Games</button>
+      <button class="botao" onclick="window.location.href='../../Creditos/Tela um/telaum.html'">Créditos</button>
     </div>
   </div>
 
-  <canvas width="320" height="640" id="game"></canvas>
+  <!-- Jogo -->
+  <canvas id="game" width="320" height="640"></canvas>
 
-  <br> <!--Quebra linha-->
+  <!-- Controles para celular -->
+  <div class="mobile-controls">
+    <button onclick="moveLeft()">◀</button>
+    <button onclick="rotate()">⟳</button>
+    <button onclick="moveDown()">▼</button>
+    <button onclick="moveRight()">▶</button>
+  </div>
 
   <!-- Botão Recomeçar -->
   <div class="restart-container">
     <button class="restart-button" onclick="location.reload()">Recomeçar</button>
   </div>
 
+  <!-- Pontuações -->
   <div id="score">Pontuação: 0</div>
   <div id="high-score">Maior Pontuação: 0</div>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>

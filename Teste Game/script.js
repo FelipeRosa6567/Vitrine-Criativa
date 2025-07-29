@@ -294,3 +294,51 @@ function toggleMenu() {
   const submenu = document.getElementById("submenu");
   submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
 }
+
+// Controles de toque para dispositivos móveis
+function moveLeft() {
+  if (!gameOver) {
+    const novaCol = tetromino.col - 1;
+    if (isValidMove(tetromino.matrix, tetromino.row, novaCol)) {
+      tetromino.col = novaCol;
+    }
+  }
+}
+
+function moveRight() {
+  if (!gameOver) {
+    const novaCol = tetromino.col + 1;
+    if (isValidMove(tetromino.matrix, tetromino.row, novaCol)) {
+      tetromino.col = novaCol;
+    }
+  }
+}
+
+function moveDown() {
+  if (!gameOver) {
+    const novaLinha = tetromino.row + 1;
+    if (!isValidMove(tetromino.matrix, novaLinha, tetromino.col)) {
+      tetromino.row = novaLinha - 1;
+      placeTetromino();
+    } else {
+      tetromino.row = novaLinha;
+    }
+  }
+}
+
+function rotate() {
+  if (!gameOver) {
+    const novaMatriz = rotateMatrix(tetromino.matrix);
+    if (isValidMove(novaMatriz, tetromino.row, tetromino.col)) {
+      tetromino.matrix = novaMatriz;
+    }
+  }
+}
+
+// Duplicata segura da função de rotação usada pelo botão
+function rotateMatrix(matrix) {
+  const N = matrix.length - 1;
+  return matrix.map((row, i) =>
+    row.map((_, j) => matrix[N - j][i])
+  );
+}
